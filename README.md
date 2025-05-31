@@ -9,6 +9,18 @@ The automation task is implemented using Playwright with JavaScript. The automat
 5. Register User with existing email
 6. Verify Test Cases Page
 
+## Installing Dependencies
+
+Before running the tests, ensure you have Node.js installed.
+
+1. **Install project dependencies**  
+   ```bash
+   npm install
+
+2. **Install Playwright browsers**
+   ```bash
+   npx playwright install
+
 ## Running the Tests
 
 You have several options to run the tests:
@@ -31,9 +43,11 @@ You have several options to run the tests:
 **By default the tests are run in headless mode. To change and run in headed you have two options:**
 1. Add '--headed' in the command
 2. Modify the playwright.config.js file to set headless: false:
+```js
 use: {
     headless: false,
-  },
+     },
+```
 
 ## Folder Structure
 
@@ -60,7 +74,6 @@ AutomationTask/            # Root directory
 ├── playwright.config.js   # Playwright configuration
 └── README.md
 ```
-
 
 ## This project uses a .env file to manage environment variables.
 To set it up, please create a .env file in the root directory with the following content:
