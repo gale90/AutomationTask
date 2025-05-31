@@ -27,7 +27,7 @@ You have several options to run the tests:
    npx playwright test --grep '@tag_name'
    ```
 
-**By default the tests are run in headless mode. To change and tun in headed you have two options:**
+**By default the tests are run in headless mode. To change and run in headed you have two options:**
 1. Add '--headed' in the command
 2. Modify the playwright.config.js file to set headless: false:
 use: {
@@ -35,25 +35,30 @@ use: {
   },
 
 ## Folder Structure
-AutomationTask/
+AutomationTask/           # Root
 ├── pageObject/           # Page Object Model files
+│   ├── basePage.js
+│   ├── loginPage.js
+│   ├── signUpPage.js
 │   └── testCasesPage.spec.js
 ├── fixtures/             # Custom Playwright fixtures
 │   └── fixtures.js
-├── data/                 # Test data files (e.g., JSON)
+├── data/                 # Test data files
 │   └── testCasesList.json
 ├── tests/                # Test specifications
-│   └── testCasesPage.spec.js
-├── utils/                # Utility functions and helpers
-│   └── logger.js
+│   ├── signUp.spec.js
+│   └── testCases.spec.js
+├── utils/                # Utility functions
+│   ├── logger.js
+│   └── rndGenerator.js
 ├── .env                  # Environment variables (not committed)
 ├── .gitignore
-├── playwright.config.js  # Playwright configuration
 ├── package.json
+├── playwright.config.js  # Playwright configuration
 └── README.md
 
 ## This project uses a .env file to manage environment variables.
 To set it up, please create a .env file in the root directory with the following content:
-BASE_URL=https://your-testing-url.com
-USERNAME=your-username
+BASE_URL=https://www.automationexercise.com/
+EMAIL=your-email
 PASSWORD=your-password

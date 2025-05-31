@@ -1,8 +1,9 @@
-import testCasesList from "../data/testCasesList.json";
+import testCases from "../data/testCases.json";
 import { test, expect } from "../fixtures/fixtures.js";
 import logger from "../utils/logger.js";
 
-test.beforeEach(async ({ testCasesClass }) => {
+test.beforeEach(async ({ testCasesClass }, testInfo) => {
+  logger.info(`Running test: ${testInfo.title}`);
   await testCasesClass.navigateToTestCases();
 });
 
@@ -15,10 +16,10 @@ test.describe.parallel("Test Cases tests group", () => {
 
       const testCasesOnPage = await testCasesClass.getTestCasesList();
 
-      testCasesList.testCases.forEach((testCase) => {
+      for (const testCase of testCases.testCasesList) {
         expect(testCasesOnPage).toContain(testCase);
         logger.info(`Checking: ${testCase}`);
-      });
+      }
     }
   );
 

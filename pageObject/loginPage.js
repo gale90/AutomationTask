@@ -1,40 +1,37 @@
-import creds from "../data/creds";
-
-export class Login {
+export class LogIn {
     constructor(page) {
-      this.page = page;
-      this.signInBtn = page.locator('a:has-text("Sign In")')
-      this.emailField = page.locator('#email')
-      this.passwordField = page.locator('#passwd')
-      this.loginBtn = page.locator('#SubmitLogin')
+        this.page = page;
+        this.signUpLink = page.locator('a[href="/login"]');
+        this.nameField = page.locator('input[name="name"]');
+        this.emailField = page.locator('div.signup-form input[name="email"]');
+        this.signUpBtn = page.locator('button[data-qa="signup-button"]');
+        this.existingEmailTxt = page.locator('p:has-text("Email Address already exist!")');
     }
-  
-    async navigateToHomepage() {
-        await this.page.goto('/')
+
+    async navigateToSignUp() {
+        await this.page.goto('/');
+        await this.signUpLink.click();
     };
 
-    async clickSignInButton() {
-        await this.signInBtn.click()
+    async enterName(name) {
+        await this.nameField.type(name);
     }
 
-    async clickLogInButton() {
-        await this.loginBtn.click()
+    async enterEmail(email) {
+        await this.emailField.type(email);
     }
 
-    async enterEmail() {
-        await this.emailField.type(creds.email)
+    async clickSignUpBtn() {
+        await this.signUpBtn.click();
     }
 
-    async enterPassword() {
-        await this.passwordField.type(creds.password)
+    async existingEmailValidation() {
+        return await this.existingEmailTxt;
     }
 
-    async loginUser(){
-        await this.clickSignInButton()
-        await this.enterEmail()
-        await this.enterPassword()
-        await this.clickLogInButton()
+    async fillNewUserSignUp(name, email) {
+        await this.enterName(name);
+        await this.enterEmail(email);
+        await this.clickSignUpBtn();
     }
-
 }
-  
