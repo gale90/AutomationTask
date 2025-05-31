@@ -26,7 +26,7 @@ test.describe("Signup tests group", () => {
       expect(page.url()).toContain("signup");
       await signUpClass.checkMrCB();
       await signUpClass.enterPassword(user.password);
-      await signUpClass.selectBirthDate(generateRandomDay().toString(), generateRandomMonth().toString(), generateRandomYear().toString());
+      await signUpClass.selectBirthDate(generateRandomDay(), generateRandomMonth(), generateRandomYear());
       await signUpClass.enterFirstName(user.firstName);
       await signUpClass.enterLastName(user.lastName);
       await signUpClass.enterCompany(user.company);

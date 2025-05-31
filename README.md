@@ -40,6 +40,13 @@ You have several options to run the tests:
    npx playwright test --grep '@tag_name'
    ```
 
+**Tests run in parallel using 2 workers by default. To run tests sequentially, you can either:**
+1. Add '--workers=1' in the command
+2. Modify the playwright.config.js file to set workers: 1:
+```js
+workers: process.env.CI ? 2 : 1,
+```
+
 **By default the tests are run in headless mode. To change and run in headed you have two options:**
 1. Add '--headed' in the command
 2. Modify the playwright.config.js file to set headless: false:
