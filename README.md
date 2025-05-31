@@ -2,11 +2,12 @@
 
 The automation task is implemented using Playwright with JavaScript. The automated tests cover the following scenarios:
 
-1. ...
-2. ...
-3. ...
-4. ...
-5. ...
+1. Register User
+2. Login User with correct email and password - TBD
+3. Login User with incorrect email and password - TBD
+4. Logout User - TBD
+5. Register User with existing email
+6. Verify Test Cases Page
 
 ## Running the Tests
 
@@ -35,27 +36,31 @@ use: {
   },
 
 ## Folder Structure
-AutomationTask/           # Root
-├── pageObject/           # Page Object Model files
+
+```
+AutomationTask/            # Root directory
+├── pageObject/            # Page Object Model files
 │   ├── basePage.js
 │   ├── loginPage.js
 │   ├── signUpPage.js
 │   └── testCasesPage.spec.js
-├── fixtures/             # Custom Playwright fixtures
+├── fixtures/              # Custom Playwright fixtures
 │   └── fixtures.js
-├── data/                 # Test data files
+├── data/                  # Test data files
 │   └── testCasesList.json
-├── tests/                # Test specifications
+├── tests/                 # Test specifications
 │   ├── signUp.spec.js
 │   └── testCases.spec.js
-├── utils/                # Utility functions
+├── utils/                 # Utility functions
 │   ├── logger.js
 │   └── rndGenerator.js
-├── .env                  # Environment variables (not committed)
+├── .env                   # Environment variables (not committed)
 ├── .gitignore
 ├── package.json
-├── playwright.config.js  # Playwright configuration
+├── playwright.config.js   # Playwright configuration
 └── README.md
+```
+
 
 ## This project uses a .env file to manage environment variables.
 To set it up, please create a .env file in the root directory with the following content:
