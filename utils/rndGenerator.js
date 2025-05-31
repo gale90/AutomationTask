@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 
 export function generateRandomName(prefix = "User") {
-  const random = Math.random().toString(36).substring(2, 8); // 6 random alphanumeric chars
+  const random = Math.random().toString(36).substring(2, 8);
   return `${prefix}_${random}`;
 }
 
