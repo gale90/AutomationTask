@@ -27,10 +27,33 @@ You have several options to run the tests:
    npx playwright test --grep '@tag_name'
    ```
 
-## Folder Structure
+**By default the tests are run in headless mode. To change and tun in headed you have two options:**
+1. Add '--headed' in the command
+2. Modify the playwright.config.js file to set headless: false:
+use: {
+    headless: false,
+  },
 
-- **Page Objects**: Located in the `pageObject` directory.
-- **Playwright Fixtures**: Located in the `fixtures` directory.
-- **Data Files**: Located in the `data` directory.
-- **Tests**: Located in the `tests` directory.
-- **Utils**: Located in the `utils` directory.
+## Folder Structure
+AutomationTask/
+├── pageObject/           # Page Object Model files
+│   └── testCasesPage.spec.js
+├── fixtures/             # Custom Playwright fixtures
+│   └── fixtures.js
+├── data/                 # Test data files (e.g., JSON)
+│   └── testCasesList.json
+├── tests/                # Test specifications
+│   └── testCasesPage.spec.js
+├── utils/                # Utility functions and helpers
+│   └── logger.js
+├── .env                  # Environment variables (not committed)
+├── .gitignore
+├── playwright.config.js  # Playwright configuration
+├── package.json
+└── README.md
+
+## This project uses a .env file to manage environment variables.
+To set it up, please create a .env file in the root directory with the following content:
+BASE_URL=https://your-testing-url.com
+USERNAME=your-username
+PASSWORD=your-password
