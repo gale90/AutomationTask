@@ -4,7 +4,7 @@ The automation task is implemented using Playwright with JavaScript. The automat
 
 1. Register User
 2. Login User with correct email and password
-3. Login User with incorrect email and password - TBD
+3. Login User with incorrect email and password
 4. Logout User
 5. Register User with existing email
 6. Verify Test Cases Page
@@ -68,6 +68,7 @@ AutomationTask/            # Root directory
 ├── fixtures/              # Custom Playwright fixtures
 │   └── fixtures.js
 ├── data/                  # Test data files
+│   ├── credentials.csv
 │   └── testCasesList.json
 ├── tests/                 # Test specifications
 │   ├── login.spec.js
@@ -75,8 +76,9 @@ AutomationTask/            # Root directory
 │   ├── signUp.spec.js
 │   └── testCases.spec.js
 ├── utils/                 # Utility functions
+│   ├── csvReader.js
 │   ├── logger.js
-│   └── rndGenerator.js
+│   └── randomGenerator.js
 ├── .env                   # Environment variables (not committed)
 ├── .gitignore
 ├── package.json
