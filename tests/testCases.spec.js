@@ -17,7 +17,7 @@ test.describe.parallel("Test Cases tests group", () => {
       const testCasesOnPage = await testCasesClass.getTestCasesList();
 
       for (const testCase of testCases.testCasesList) {
-        expect(testCasesOnPage).toContain(testCase);
+        expect(testCasesOnPage, `Missing test case: ${testCase}`).toContain(testCase);
         logger.info(`Checking: ${testCase}`);
       }
     }
@@ -31,15 +31,15 @@ test.describe.parallel("Test Cases tests group", () => {
 
       for (let i = 0; i < count; i++) {
         const testCaseElement = testCasesClass.testCasesList.nth(i);
-        const text = await testCaseElement.innerText();
-
-        logger.info(`Clicking accordion: ${text}`);
-        await testCaseElement.click();
-
-        const stepCount = await testCasesClass.testStepsList.count();
-        expect(stepCount).toBeGreaterThan(0);
+        const testCaseText = await testCaseElement.innerText();
+        logger.info(`Clicking accordion: ${testCaseText}`);
 
         await testCaseElement.click();
+
+        const isExpanded = await testCaseElement.evaluate(
+          element => !element.classList.contains("collapsed")
+        );
+        expect(isExpanded).toBe(true);
       }
     }
   );

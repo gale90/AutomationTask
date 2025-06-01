@@ -1,7 +1,10 @@
-export class LogIn {
+import { BasePage } from './basePage.js';
+
+export class LogIn extends BasePage {
     constructor(page) {
+        super(page);
+
         this.page = page;
-        this.signUpLink = page.locator('a[href="/login"]');
         this.nameField = page.locator('input[name="name"]');
         this.signUpEmailField = page.locator('div.signup-form input[name="email"]');
         this.signUpBtn = page.locator('button[data-qa="signup-button"]');
@@ -11,11 +14,6 @@ export class LogIn {
         this.loginBtn = page.locator('button[data-qa="login-button"]');
         this.userLoggedInTxt = page.locator('//i[@class="fa fa-user"]/parent::a');
     }
-
-    async navigateToSignUpLogin() {
-        await this.page.goto('/');
-        await this.signUpLink.click();
-    };
 
     async enterName(name) {
         await this.nameField.type(name);

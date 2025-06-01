@@ -8,13 +8,11 @@ test.beforeEach(async ({ page, logInClass }, testInfo) => {
     await logInClass.loginUser(process.env.EMAIL, process.env.PASSWORD);
 });
 
-test.describe("Logout tests group", () => {
-    test(
-        "Verify that user can logout",
-        { tag: ["@loginPage", "@e2e"] },
-        async ({ baseClass }) => {
-            await baseClass.clickLogout();
-            await expect(baseClass.logoutLink).not.toBeVisible();
-        }
-    )
-});
+test(
+    "Verify that user can logout",
+    { tag: ["@loginPage", "@e2e"] },
+    async ({ baseClass }) => {
+        await baseClass.clickLogout();
+        await expect(baseClass.logoutLink).not.toBeVisible();
+    }
+)

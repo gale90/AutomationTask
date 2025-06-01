@@ -1,6 +1,6 @@
 import { test, expect } from "../fixtures/fixtures.js";
 import logger from "../utils/logger.js";
-import { generateRandomName, generateRandomDay, generateRandomMonth, generateRandomYear, generateRandomCountry, generateUserData } from "../utils/rndGenerator.js";
+import { generateRandomName, generateRandomDay, generateRandomMonth, generateRandomYear, generateRandomCountry, generateUserData } from "../utils/randomGenerator.js";
 
 let rndName;
 let rndEmail;
