@@ -9,7 +9,7 @@ test.beforeEach(async ({ signUpClass }, testInfo) => {
   logger.info(`Running test: ${testInfo.title}`);
   rndName = generateRandomName();
   rndEmail = `${rndName}@automationexercise.com`;
-  await signUpClass.navigateToSignUp();
+  await signUpClass.navigateToSignUpLogin();
 });
 
 test.describe("Signup tests group", () => {

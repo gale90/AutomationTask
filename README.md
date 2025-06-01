@@ -3,9 +3,9 @@
 The automation task is implemented using Playwright with JavaScript. The automated tests cover the following scenarios:
 
 1. Register User
-2. Login User with correct email and password - TBD
+2. Login User with correct email and password
 3. Login User with incorrect email and password - TBD
-4. Logout User - TBD
+4. Logout User
 5. Register User with existing email
 6. Verify Test Cases Page
 
@@ -70,6 +70,8 @@ AutomationTask/            # Root directory
 ├── data/                  # Test data files
 │   └── testCasesList.json
 ├── tests/                 # Test specifications
+│   ├── login.spec.js
+│   ├── logout.spec.js
 │   ├── signUp.spec.js
 │   └── testCases.spec.js
 ├── utils/                 # Utility functions
