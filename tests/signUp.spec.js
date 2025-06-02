@@ -1,6 +1,13 @@
 import { test, expect } from "../fixtures/fixtures.js";
 import logger from "../utils/logger.js";
-import { generateRandomName, generateRandomDay, generateRandomMonth, generateRandomYear, generateRandomCountry, generateUserData } from "../utils/randomGenerator.js";
+import {
+  generateRandomName,
+  generateRandomDay,
+  generateRandomMonth,
+  generateRandomYear,
+  generateRandomCountry,
+  generateUserData,
+} from "../utils/randomGenerator.js";
 
 let rndName;
 let rndEmail;
@@ -20,25 +27,42 @@ test.describe("Signup tests group", () => {
       const user = generateUserData();
 
       expect(page.url()).toContain("login");
-      logger.info(`Name: ${rndName}`);
-      logger.info(`Email: ${rndEmail}`);
+
       await signUpClass.fillNewUserSignUp(rndName, rndEmail);
+
       expect(page.url()).toContain("signup");
-      await signUpClass.checkMrCB();
-      await signUpClass.enterPassword(user.password);
-      await signUpClass.selectBirthDate(generateRandomDay(), generateRandomMonth(), generateRandomYear());
-      await signUpClass.enterFirstName(user.firstName);
-      await signUpClass.enterLastName(user.lastName);
-      await signUpClass.enterCompany(user.company);
-      await signUpClass.enterAddress(user.address);
-      await signUpClass.selectCountry(generateRandomCountry());
-      await signUpClass.enterState(user.state);
-      await signUpClass.enterCity(user.city);
-      await signUpClass.enterZipcode(user.zip);
-      await signUpClass.enterPhoneNumber(user.phone);
+      expect(await signUpClass.enterAccInfoTitle()).toBeVisible();
+
+      await signUpClass.fillUserInfo(
+        user.password,
+        user.firstName,
+        user.lastName,
+        user.company,
+        user.address,
+        generateRandomCountry(),
+        user.state,
+        user.city,
+        user.zip,
+        user.phone
+      );
+
+      await signUpClass.selectBirthDate(
+        generateRandomDay(),
+        generateRandomMonth(),
+        generateRandomYear()
+      );
+
+      await signUpClass.checkNewsletterCB();
+      await signUpClass.checkSpecialOffersCB();
+
       await signUpClass.clickCreateAccount();
       expect(page.url()).toContain("account_created");
-      expect(await signUpClass.accountCreatedTitle()).toContain('ACCOUNT CREATED!');
+      expect(await signUpClass.accountCreatedTitle()).toContain("ACCOUNT CREATED!");
+      await signUpClass.clickContinueBtn();
+      expect(await signUpClass.userLoggedInMsg()).toContain(`Logged in as ${rndName}`);
+      await signUpClass.clickDeleteAcc();
+      expect(await signUpClass.accountDeletedTitle()).toBeVisible();
+      await signUpClass.clickContinueBtn();
     }
   );
 
@@ -47,8 +71,7 @@ test.describe("Signup tests group", () => {
     { tag: ["@signUpPage", "@e2e"] },
     async ({ page, signUpClass }) => {
       expect(page.url()).toContain("login");
-      logger.info(`Name: ${rndName}`);
-      logger.info(`Email: ${rndEmail}`);
+      
       await signUpClass.fillNewUserSignUp(rndName, process.env.EMAIL);
       await expect(await signUpClass.existingEmailValidation()).toBeVisible();
     }
