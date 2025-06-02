@@ -19,7 +19,7 @@ export class SignUp extends LogIn {
         this.zipcodeField = page.locator('input#zipcode');
         this.phoneNumberField = page.locator('input#mobile_number');
         this.createAccBtn = page.locator('button[data-qa="create-account"]');
-        this.mrCB = page.locator('input#id_gender1');        
+        this.genderCB = page.locator('input#id_gender1');
         this.accountCreatedTxt = page.locator('h2[data-qa="account-created"]');
     }
 
@@ -40,39 +40,39 @@ export class SignUp extends LogIn {
     }
 
     async enterFirstName(firstName) {
-        await this.firstNameField.type(firstName)
+        await this.firstNameField.type(firstName);
     }
 
     async enterLastName(lastName) {
-        await this.lastNameField.type(lastName)
+        await this.lastNameField.type(lastName);
     }
 
     async enterCompany(company) {
-        await this.companyField.type(company)
+        await this.companyField.type(company);
     }
 
     async enterAddress(address) {
-        await this.addressField.type(address)
+        await this.addressField.type(address);
     }
 
     async selectCountry(country) {
-        await this.countryDD.selectOption(country)
+        await this.countryDD.selectOption(country);
     }
 
     async enterState(state) {
-        await this.stateField.type(state)
+        await this.stateField.type(state);
     }
 
     async enterCity(city) {
-        await this.cityField.type(city)
+        await this.cityField.type(city);
     }
 
     async enterZipcode(zip) {
-        await this.zipcodeField.type(zip)
+        await this.zipcodeField.type(zip);
     }
 
     async enterPhoneNumber(phone) {
-        await this.phoneNumberField.type(phone)
+        await this.phoneNumberField.type(phone);
     }
 
     async clickCreateAccount() {
@@ -80,7 +80,7 @@ export class SignUp extends LogIn {
     }
 
     async checkMrCB() {
-        await this.mrCB.check();
+        await this.genderCB.check();
     }
 
     async accountCreatedTitle() {

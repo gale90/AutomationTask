@@ -6,18 +6,21 @@ export function generateRandomName(prefix = "User") {
 }
 
 export function generateRandomDay() {
-  return Math.floor(Math.random() * 31) + 1;
+  const day = Math.floor(Math.random() * 31) + 1;
+  return day.toString();
 }
 
 export function generateRandomMonth() {
-  return Math.floor(Math.random() * 12) + 1;
+  const month = Math.floor(Math.random() * 12) + 1;
+  return month.toString();
 }
 
 export function generateRandomYear() {
   const currentYear = new Date().getFullYear();
   const maxYear = currentYear - 18;
   const minYear = currentYear - 80;
-  return Math.floor(Math.random() * (maxYear - minYear + 1)) + minYear;
+  const randomYear = Math.floor(Math.random() * (maxYear - minYear + 1)) + minYear;
+  return randomYear.toString();
 }
 
 export function generateRandomCountry() {

@@ -1,6 +1,6 @@
 import { test, expect } from "../fixtures/fixtures.js";
 import logger from "../utils/logger.js";
-import { generateRandomName, generateRandomDay, generateRandomMonth, generateRandomYear, generateRandomCountry, generateUserData } from "../utils/rndGenerator.js";
+import { generateRandomName, generateRandomDay, generateRandomMonth, generateRandomYear, generateRandomCountry, generateUserData } from "../utils/randomGenerator.js";
 
 let rndName;
 let rndEmail;
@@ -9,7 +9,7 @@ test.beforeEach(async ({ signUpClass }, testInfo) => {
   logger.info(`Running test: ${testInfo.title}`);
   rndName = generateRandomName();
   rndEmail = `${rndName}@automationexercise.com`;
-  await signUpClass.navigateToSignUp();
+  await signUpClass.navigateToSignUpLogin();
 });
 
 test.describe("Signup tests group", () => {
@@ -26,7 +26,7 @@ test.describe("Signup tests group", () => {
       expect(page.url()).toContain("signup");
       await signUpClass.checkMrCB();
       await signUpClass.enterPassword(user.password);
-      await signUpClass.selectBirthDate(generateRandomDay().toString(), generateRandomMonth().toString(), generateRandomYear().toString());
+      await signUpClass.selectBirthDate(generateRandomDay(), generateRandomMonth(), generateRandomYear());
       await signUpClass.enterFirstName(user.firstName);
       await signUpClass.enterLastName(user.lastName);
       await signUpClass.enterCompany(user.company);
