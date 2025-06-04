@@ -2,8 +2,9 @@ import testCases from "../data/testCases.json";
 import { test, expect } from "../fixtures/fixtures.js";
 import logger from "../utils/logger.js";
 
-test.beforeEach(async ({ testCasesClass }, testInfo) => {
+test.beforeEach(async ({ page, testCasesClass }, testInfo) => {
   logger.info(`Running test: ${testInfo.title}`);
+  await page.goto("/");
   await testCasesClass.navigateToTestCases();
 });
 

@@ -6,6 +6,7 @@ const users = readCSV("data/credentials.csv");
 
 test.beforeEach(async ({ page, logInClass }, testInfo) => {
   logger.info(`Running test: ${testInfo.title}`);
+  await page.goto("/");
   await logInClass.navigateToSignUpLogin();
   expect(page.url()).toContain("login");
 });

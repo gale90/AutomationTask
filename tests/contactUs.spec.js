@@ -8,6 +8,7 @@ test(
   { tag: ["@contactUsPage", "@e2e"] },
   async ({ page, contactUsClass }, testInfo) => {
     logger.info(`Running test: ${testInfo.title}`);
+    await page.goto("/");
     await contactUsClass.navigateToContactUs();
     expect(page.url()).toContain("contact_us");
     await expect(contactUsClass.getInTouchTitle()).toBeVisible();

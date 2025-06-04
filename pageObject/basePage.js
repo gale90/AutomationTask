@@ -7,16 +7,15 @@ export class BasePage {
     this.deleteAccLink = page.locator('a[href="/delete_account"]');
     this.accountDeletedTxt = page.locator('h2[data-qa="account-deleted"]');
     this.contactUsLink = page.locator('a[href="/contact_us"]');
-    this.homeLink = page.locator('a > i.fa-home');
+    this.homeLink = page.locator("a > i.fa-home");
+    this.productsLink = page.locator('a[href="/products"]');
   }
 
   async navigateToSignUpLogin() {
-    await this.page.goto("/");
     await this.signUpLoginLink.click();
   }
 
   async navigateToTestCases() {
-    await this.page.goto("/");
     await this.testCasesLink.click();
   }
 
@@ -37,11 +36,14 @@ export class BasePage {
   }
 
   async navigateToContactUs() {
-    await this.page.goto("/");
     await this.contactUsLink.click();
   }
 
   async navigateToHome() {
     await this.homeLink.click();
+  }
+
+  async navigateToProducts() {
+    await this.productsLink.click();
   }
 }

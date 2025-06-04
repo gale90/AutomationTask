@@ -4,6 +4,7 @@ import { SignUp } from "../pageObject/signUpPage";
 import { LogIn } from "../pageObject/loginPage";
 import { BasePage } from "../pageObject/basePage";
 import { ContactUs } from "../pageObject/contactUsPage";
+import { Products } from "../pageObject/productsPage";
 
 export const test = base.extend({
   baseClass: async ({ page }, use) => {
@@ -20,6 +21,9 @@ export const test = base.extend({
   },
   contactUsClass: async ({ page }, use) => {
     await use(new ContactUs(page));
+  },
+  productsClass: async ({ page }, use) => {
+    await use(new Products(page));
   },
 });
 

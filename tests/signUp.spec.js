@@ -12,10 +12,11 @@ import {
 let rndName;
 let rndEmail;
 
-test.beforeEach(async ({ signUpClass }, testInfo) => {
+test.beforeEach(async ({ page, signUpClass }, testInfo) => {
   logger.info(`Running test: ${testInfo.title}`);
   rndName = generateRandomName();
   rndEmail = `${rndName}@automationexercise.com`;
+  await page.goto("/");
   await signUpClass.navigateToSignUpLogin();
 });
 

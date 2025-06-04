@@ -3,6 +3,7 @@ import logger from "../utils/logger.js";
 
 test.beforeEach(async ({ page, logInClass }, testInfo) => {
   logger.info(`Running test: ${testInfo.title}`);
+  await page.goto("/");
   await logInClass.navigateToSignUpLogin();
   expect(page.url()).toContain("login");
   await logInClass.loginUser(process.env.EMAIL, process.env.PASSWORD);
