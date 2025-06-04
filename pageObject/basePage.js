@@ -6,6 +6,8 @@ export class BasePage {
     this.logoutLink = page.locator('a[href="/logout"]');
     this.deleteAccLink = page.locator('a[href="/delete_account"]');
     this.accountDeletedTxt = page.locator('h2[data-qa="account-deleted"]');
+    this.contactUsLink = page.locator('a[href="/contact_us"]');
+    this.homeLink = page.locator('a > i.fa-home');
   }
 
   async navigateToSignUpLogin() {
@@ -32,5 +34,14 @@ export class BasePage {
 
   async accountDeletedTitle() {
     return await this.accountDeletedTxt;
+  }
+
+  async navigateToContactUs() {
+    await this.page.goto("/");
+    await this.contactUsLink.click();
+  }
+
+  async navigateToHome() {
+    await this.homeLink.click();
   }
 }

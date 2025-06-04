@@ -1,4 +1,3 @@
-import { th } from "@faker-js/faker";
 import { LogIn } from "./loginPage.js";
 
 export class SignUp extends LogIn {
@@ -9,23 +8,23 @@ export class SignUp extends LogIn {
     this.enterAccInfoTxt = page.locator(
       'h2.title:has-text("Enter Account Information")'
     );
-    this.passwordField = page.locator("input#password");
-    this.dateDayDD = page.locator("select#days");
-    this.dateMonthDD = page.locator("select#months");
-    this.dateYearDD = page.locator("select#years");
-    this.newsletterCB = page.locator("input#newsletter");
-    this.specialOffersCB = page.locator("input#optin");
-    this.firstNameField = page.locator("input#first_name");
-    this.lastNameField = page.locator("input#last_name");
-    this.companyField = page.locator("input#company");
-    this.addressField = page.locator("input#address1");
-    this.countryDD = page.locator("select#country");
-    this.stateField = page.locator("input#state");
-    this.cityField = page.locator("input#city");
-    this.zipcodeField = page.locator("input#zipcode");
-    this.phoneNumberField = page.locator("input#mobile_number");
+    this.passwordField = page.locator('input#password');
+    this.dateDayDD = page.locator('select#days');
+    this.dateMonthDD = page.locator('select#months');
+    this.dateYearDD = page.locator('select#years');
+    this.newsletterCB = page.locator('input#newsletter');
+    this.specialOffersCB = page.locator('input#optin');
+    this.firstNameField = page.locator('input#first_name');
+    this.lastNameField = page.locator('input#last_name');
+    this.companyField = page.locator('input#company');
+    this.addressField = page.locator('input#address1');
+    this.countryDD = page.locator('select#country');
+    this.stateField = page.locator('input#state');
+    this.cityField = page.locator('input#city');
+    this.zipcodeField = page.locator('input#zipcode');
+    this.phoneNumberField = page.locator('input#mobile_number');
     this.createAccBtn = page.locator('button[data-qa="create-account"]');
-    this.genderCB = page.locator("input#id_gender1");
+    this.genderCB = page.locator('input#id_gender1');
     this.accountCreatedTxt = page.locator('h2[data-qa="account-created"]');
     this.continueBtn = page.locator('a[data-qa="continue-button"]');
   }

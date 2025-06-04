@@ -3,6 +3,7 @@ import { TestCases } from "../pageObject/testCasesPage";
 import { SignUp } from "../pageObject/signUpPage";
 import { LogIn } from "../pageObject/loginPage";
 import { BasePage } from "../pageObject/basePage";
+import { ContactUs } from "../pageObject/contactUsPage";
 
 export const test = base.extend({
   baseClass: async ({ page }, use) => {
@@ -16,6 +17,9 @@ export const test = base.extend({
   },
   testCasesClass: async ({ page }, use) => {
     await use(new TestCases(page));
+  },
+  contactUsClass: async ({ page }, use) => {
+    await use(new ContactUs(page));
   },
 });
 
