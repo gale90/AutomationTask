@@ -62,7 +62,9 @@ use: {
 AutomationTask/            # Root directory
 ├── pageObject/            # Page Object Model files
 │   ├── basePage.js
+│   ├── contactUsPage.js
 │   ├── loginPage.js
+│   ├── productsPage.js
 │   ├── signUpPage.js
 │   └── testCasesPage.spec.js
 ├── fixtures/              # Custom Playwright fixtures
@@ -71,12 +73,15 @@ AutomationTask/            # Root directory
 │   ├── credentials.csv
 │   └── testCasesList.json
 ├── tests/                 # Test specifications
+│   ├── contactUs.spec.js
 │   ├── login.spec.js
 │   ├── logout.spec.js
+│   ├── products.spec.js
 │   ├── signUp.spec.js
 │   └── testCases.spec.js
 ├── utils/                 # Utility functions
 │   ├── csvReader.js
+│   ├── helpers.js
 │   ├── logger.js
 │   └── randomGenerator.js
 ├── .env                   # Environment variables (not committed)
